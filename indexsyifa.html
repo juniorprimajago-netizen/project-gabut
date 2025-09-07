@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrapbook Syifa</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      transition: 0.5s;
+    }
+
+    body.light {
+      background: linear-gradient(45deg, #f0f0f0, #ddd);
+      color: black;
+    }
+
+    .book {
+      width: 600px;
+      height: 400px;
+      perspective: 2000px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* 📱 Responsif untuk HP */
+    @media (max-width: 768px) {
+      .book {
+        width: 90vw;
+        height: 60vh;
+      }
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      text-align: center;
+      position: absolute;
+      transform-origin: left;
+      transition: transform 1s, opacity 0.8s ease-in-out;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      overflow: hidden;
+      backface-visibility: hidden;
+      opacity: 1;
+      padding: 20px;
+      flex-direction: column;
+    }
+
+    .page.hidden {
+      opacity: 0;
+    }
+
+    .page img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .quote {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 16px;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 20;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: #ff4b2b;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff4b2b;
+      color: white;
+    }
+
+    audio {
+      display: none;
+    }
+
+    /* 🌸 Efek bunga */
+    .flower {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      z-index: 5;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* 🌙 Tombol mode */
+    .top-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+      z-index: 30;
+    }
+  </style>
+</head>
+<body>
+  <div class="book">
+    <!-- Slide 1 -->
+    <div class="page" style="z-index:20;">
+      <p>✨ Pesona perempuan terbaik yang pernah aku temuin ✨</p>
+    </div>
+
+    <!-- Foto + quotes -->
+    <div class="page" style="z-index:19;">
+      <img src="foto1.jpg" alt="">
+      <p class="quote">"Dia orang terbaik"</p>
+    </div>
+    <div class="page" style="z-index:18;">
+      <img src="foto2.jpg" alt="">
+      <p class="quote">"Dia baikk bangett"</p>
+    </div>
+    <div class="page" style="z-index:17;">
+      <img src="foto3.jpg" alt="">
+      <p class="quote">"Humble jugaa"</p>
+    </div>
+    <div class="page" style="z-index:16;">
+     <img src="foto4.jpg" alt="">
+     <p class="quote">"Tidaa ngebosenin lagi"</p>
+    </div>
+    <div class="page" style="z-index:15;">
+     <img src="foto5.jpg" alt="">
+     <p class="quote">"Lucu"</p>
+    </div>
+    <div class="page" style="z-index:14;">
+  <img src="foto6.jpg" alt="">
+  <p class="quote">"Imut"</p>
+</div>
+<div class="page" style="z-index:13;">
+  <img src="foto7.jpg" alt="">
+  <p class="quote">"Punya banyak prestasi"</p>
+</div>
+<div class="page" style="z-index:12;">
+  <img src="foto8.jpg" alt="">
+  <p class="quote">"Punya planing yang bagus:3"</p>
+</div>
+<div class="page" style="z-index:11;">
+  <img src="foto9.jpg" alt="">
+  <p class="quote">"Pantang Menyerah"</p>
+</div>
+<div class="page" style="z-index:10;">
+  <img src="foto10.jpg" alt="">
+  <p class="quote">"Menjadi wanita penuh inspirasi"</p>
+  <div class="page" style="z-index:9;">
+  <img src="foto11.jpg" alt="">
+  <p class="quote">"Punya kepribadian yang sangat baik "</p>
+</div>
+<div class="page" style="z-index:8;">
+  <img src="foto12.jpg" alt="">
+  <p class="quote">"Pintar dalam segala hal"</p>
+</div>
+<div class="page" style="z-index:7;">
+  <img src="foto13.jpg" alt="">
+  <p class="quote">"Berfokuskan kepada masa depannya"</p>
+</div>
+<div class="page" style="z-index:6;">
+  <img src="foto14.jpg" alt="">
+  <p class="quote">"Cantik dalam hal apapun"</p>
+</div>
+<div class="page" style="z-index:5;">
+  <img src="foto15.jpg" alt="">
+  <p class="quote">"Sempurna"</p>
+</div>
+<div class="page" style="z-index:4;">
+  <img src="foto16.jpg" alt="">
+  <p class="quote">"Aghh sampe gabisa berkata kata lagi"</p>
+</div>
+<div class="page" style="z-index:3;">
+  <img src="foto17.jpg" alt="">
+  <p class="quote">"Baik bangett intinyaaaa"</p>
+</div>
+<div class="page" style="z-index:2;">
+  <img src="foto18.jpg" alt="">
+  <p class="quote">"Paling SULIT buat digapai"</p>
+</div>
+<div class="page" style="z-index:XX;">
+  <img src="fotoX.jpg" alt="">
+  <p class="quote">"Satu yang tersempurna dari milyaran manusia kecuali ibu"</p>
+</div>
+
+
+
+
+</div>
+    <!-- Tambahin quotes sesuai foto lain -->
+    <!-- Halaman Surat -->
+    <div class="page" style="z-index:XX;">
+      <h2>💌 Surat buat Syifa</h2>
+      <p>Syifa, makasih udah hadir di hidupku. Kamu istimewa banget, semoga kita bisa terus bareng sampai kapanpun. 🌹</p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="prevPage()">⬅ Sebelumnya</button>
+    <button onclick="nextPage()">Berikutnya ➡</button>
+  </div>
+
+  <div class="top-controls">
+    <button onclick="toggleMusic()">🎶 Musik</button>
+    <button onclick="toggleMode()">🌙/☀️</button>
+  </div>
+
+  <!-- Musik -->
+  <audio id="bg-music" autoplay loop>
+    <source src="syifa.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+    const music = document.getElementById("bg-music");
+
+    function showPage(n) {
+      for (let i = 0; i < pages.length; i++) {
+        if (i < n) {
+          pages[i].style.transform = "rotateY(-180deg)";
+          pages[i].classList.add("hidden");
+        } else {
+          pages[i].style.transform = "rotateY(0deg)";
+          pages[i].classList.remove("hidden");
+        }
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+    // Auto play fix
+    document.addEventListener("click", () => {
+      if (music.paused) music.play();
+    });
+
+    // 🎶 Kontrol musik
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    // 🌙 Mode terang/gelap
+    function toggleMode() {
+      document.body.classList.toggle("light");
+    }
+
+    // 🌸 Efek bunga jatuh
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+
+      // warna random (pink, ungu, putih)
+      const colors = ["#ffb7d5", "#e0aaff", "#ffffff"];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+
+      // bentuk bunga sakura (5 kelopak)
+      flower.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <path fill="${color}" d="M32 6c4 6 10 6 14 0 2 6 8 10 14 8-2 6 0 12 6 14-6 2-8 8-6 14-6-2-12 2-14 8-4-6-10-6-14 0-2-6-8-10-14-8 2-6 0-12-6-14 6-2 8-8 6-14 6 2 12-2 14-8z"/>
+        </svg>
+      `;
+
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (5 + Math.random() * 5) + "s";
+      flower.style.opacity = Math.random();
+
+      document.body.appendChild(flower);
+
+      setTimeout(() => flower.remove(), 10000);
+    }
+
+    setInterval(createFlower, 700);
+  </script>
+</body>
+</html>
